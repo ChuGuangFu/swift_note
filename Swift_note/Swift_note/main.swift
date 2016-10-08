@@ -99,3 +99,57 @@ print(uc2)
 var c4:Character = "\u{41}"
 print(c4)
 
+
+//MARK:字符串
+var s:String = "abc" //字符串变量
+//抽象数据类型
+//一种数据类型和基于此数据类型可做的操作
+
+//操作集
+// 1.遍历 对集合中的每个元素都访问且只访问一次， 字符串是字符的有序集合,要用循环来遍历
+// 2.添加（插入、追加，合并）
+// 3.删除（一个或多个字符）
+// 4.查询字符串（有序子集）
+
+//添加:
+var s_2:String = "asdf"
+s_2.append(Character("你"))
+print("添加一个字符后：s_2:\(s_2)")
+s_2.append(UnicodeScalar(0x41))
+print("添加一个unicode标量后：s_2:\(s_2)")
+
+//求字符串的字符个数(求字符集合中的元素数量)
+let count:Int = s_2.characters.count
+print("count=\(count)")
+
+//删除
+s_2.removeAtIndex(s_2.startIndex) //删除首个字符
+print("删除首个字符后s_2=\(s_2)")
+
+//布尔类型：(逻辑值类型) 真和假 
+// true false
+var bl:Bool = true
+var bl2:Bool = false
+print("bl=\(bl),bl2=\(bl2)")
+
+var bl3:Bool = s_2.containsString("你")
+print("bl3=\(bl3)")
+
+//合并两个字符串
+var s3:String = "abc"
+var s4:String = "def"
+var s5:String = s3 + s4
+print("s3和s4合并的结果：\(s5)")
+
+//字符串复杂的操作得用循环语法
+/*
+ 预习：
+     1.运算符、表达式
+     2.控制流（if，switch，for-in，while，repeat-while）
+     3.补充字符串的一些复杂操作(遍历，插入，删除，求子串...,求范围)
+ */
+
+
+
+
+
