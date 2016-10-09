@@ -125,8 +125,10 @@ print("count=\(count)")
 //删除
 s_2.removeAtIndex(s_2.startIndex) //删除首个字符
 print("删除首个字符后s_2=\(s_2)")
+let footer = (s_2 as NSString).substringToIndex(3)
+print("footer=\(footer)")
 
-//布尔类型：(逻辑值类型) 真和假 
+//布尔类型：(逻辑值类型) 真和假
 // true false
 var bl:Bool = true
 var bl2:Bool = false
@@ -148,6 +150,94 @@ print("s3和s4合并的结果：\(s5)")
      2.控制流（if，switch，for-in，while，repeat-while）
      3.补充字符串的一些复杂操作(遍历，插入，删除，求子串...,求范围)
  */
+
+
+//MARK:类型推到、强转、可选类型
+
+/*
+ 编译器的类型推导机制
+   1.在定义变量时不写类型标注，由初始化的值来推导变量的类型  右推左
+   2.字面常量赋给变量时，根据变量标注的类型来推导  左推右
+   3.整形字面常量给无类型标注变量赋值时会执行默认推导（即为Int）
+   4.浮点字面常量给无类型标注变量赋值时会执行默认推导（即为Double）
+   5.推导的机制发生在编译时，而不是运行时 
+      解释：即原来我们需要写类型标注再编译有了推导，程序员可以省略类型标注，由编译器在编译时加上类型标注
+ */
+
+var i1:Int = 8
+var j = i1 //j被推导为Int类型
+
+var k = 8 //8是一个整形字面常量，默认被推导为Int类型的常量，继而 k 也被推导为Int类型
+var m:Int8 = 8 //8被推导为Int8类型
+
+
+var f1 = 1.5 //(默认推导为Double)
+
+/*
+ 字面常量
+    整形字面常量  8
+    浮点字面常量  1.5
+    字符字面常量  “d”
+    字符串字面常量  “asd”
+ */
+
+/*
+ 类型别名：给现有类型取别名的语法：
+    typealias 新类型名 = 现有类型名
+ */
+
+typealias newType = Int
+var x2:newType = 88  //newTppe是一个新的类型名，本质还是代表Int类型
+
+/*
+ 类型强转：
+    Int8 -> Int16 -> Int32 -> Int64 -> Int
+    Int -> Float ->Double
+ */
+var i8:Int8 = 8
+var i16:Int16 = Int16(i8) //理解为类型强转
+//  c中 short i16 = (short)i8;
+//  c++中 short i16 = short(i8);
+
+/*
+ 数据类型的可空机制（可选机制）
+ 如果某个变量可能为空，即没有实体映射，这个变量必须定义为可空类型
+ var wife:Girl = 美女实体
+ 这个wife不能简单定义为Girl类型，必须为可空的Girl类型：Optional<Girl>，可简写为：Girl？
+ */
+
+var ni:Int? = 5 //ni有一个实体映射
+print("ni=\(ni)")
+print("解析ni=\(ni!)")
+ni = nil  //nil表示空，即没有实体
+print("附空后ni=\(ni)")
+
+//报错  ni是 Int？类型 3是Int类型  两个类型不匹配，不能做加法
+//var r:Int = ni+3
+
+//可空类型的理解：
+//原来的类型为Int 但是Int必须有值
+//而Int？可以理解为一个包装盒，盒子里可能有Int 可能没Int（为空）
+//对可选类型做解析才能得到实体且有可能失败，因为可选类型可能为nil
+
+//此处会导致程序崩溃，因为解析可选失败
+//print("ni=\(ni!)")  // ！ 表示解析可选
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
